@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link rel="stylesheet" href="../templates/style.css">
+<style>
+  .boshlanishi{
+    display: flex;
+  justify-content: space-between ;
+  }
+  .tezis{
+    width: 200px;
+  }
+</style>
+<body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'mainpage' %}">Category</a>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>  
+  <div class="card" style="width: 18rem;">
+    {% load static %}
+      <img src="{% static 'users/Без названия.jpeg' %}" alt="My image">
+    <div class="card-body">
+      <h5 class="card-title"> <ul>
+        {% for category in categories%}
+        <a href="{%url 'barbers' category.id%}"><li>{{category.name}}</li></a>
+        {%endfor%}
+    </ul></h5>
+      <p class="card-text">{%for des in categories%}
+        <p> price {{ des.price}} $    {{des.desc}}</p>
+        {%endfor%}</p>
+        
+    
+
+
+  </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
